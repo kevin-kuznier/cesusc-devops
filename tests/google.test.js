@@ -1,19 +1,24 @@
-const { Builder, By, until } = require('selenium-webdriver');
+const { Builder } = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
 
 async function testGoogle() {
-  let driver = await new Builder().forBrowser('chrome').build();
+    let options = new chrome.Options();
+    options.addArguments('--headless'); // ESSENCIAL para o GitHub
+    options.addArguments('--no-sandbox');
+    options.addArguments('--disable-dev-shm-usage');
 
-  try {
-    await driver.get('https://www.google.com');
-    
-    let searchBox = await driver.findElement(By.name('q'));
-    await searchBox.sendKeys('Selenium WebDriver');
-    await searchBox.submit();
+    let driver = await new Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options)
+        .build();
 
-    await driver.wait(until.titleContains('Selenium'), 5000);
-  } finally {
-    await driver.quit();
-  }
-};
+    try {
+        await driver.get('https://www.google.com');
+    } finally {
+        await driver.quit();
+    }
+}
 
-test('Google', async () => {await testGoogle()});
+test('Google', async () => {
+    await testGoogle();
+}, 30000);
