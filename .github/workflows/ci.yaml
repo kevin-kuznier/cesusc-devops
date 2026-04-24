@@ -11,5 +11,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install
-      - name: Run tests
+        # Adicione este step após o 'npm install'
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Tests
         run: npm test

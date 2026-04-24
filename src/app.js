@@ -1,14 +1,14 @@
 const express = require('express');
+const path = require('path'); // Agora vamos usar!
 const app = express();
-const path = require('path');
 const PORT = 3000;
 
-// O endpoint deve retornar o arquivo dentro da pasta views
 app.get('/', (req, res) => {
-  // Se o app.js estiver na pasta 'src', o caminho abaixo funcionará:
-  res.sendFile('views/index.html', { root: __dirname });
+    // Usando o path.join para resolver o erro 'no-unused-vars'
+    // E o ESLint agora vai aceitar o __dirname graças ao ajuste acima
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
