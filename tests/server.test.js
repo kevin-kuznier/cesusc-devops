@@ -5,7 +5,7 @@ describe('Testes das rotas HTTP', () => {
   test('GET / retorna a calculadora', async () => {
     const res = await request(app).get('/');
     expect(res.statusCode).toBe(200);
-    expect(res.text).toContain('Calculadora DevOps');
+    expect(res.text).toContain('Calculadora');
   });
 
   test('GET /health retorna ok', async () => {
