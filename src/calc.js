@@ -1,4 +1,4 @@
-// Funcoes simples para demonstrar testes de unidade e cobertura
+// Funcoes da calculadora - cobertas por testes de unidade
 function soma(a, b) {
   return a + b;
 }
@@ -7,4 +7,15 @@ function subtrai(a, b) {
   return a - b;
 }
 
-module.exports = { soma, subtrai };
+function multiplica(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error('Divisao por zero nao permitida');
+  }
+  return a / b;
+}
+
+module.exports = { soma, subtrai, multiplica, divide };

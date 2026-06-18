@@ -22,7 +22,7 @@ describe('Teste de interface - Selenium', () => {
 
   test('Pagina inicial exibe o titulo correto', async () => {
     await driver.get(`http://localhost:${PORT}`);
-    const titulo = await driver.findElement(By.id('titulo')).getText();
-    expect(titulo).toContain('Aplicacao N3');
+    const titulo = await driver.findElement(By.tagName('h1')).getText();
+    expect(titulo).toContain('Calculadora');
   }, 30000);
 });
