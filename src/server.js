@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Calculadora v2</title>
+        <title>Calculadora</title>
         <style>
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body {
@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
       </head>
       <body>
         <div class="calc">
-          <h1>Calculadora</h1>
+          <h1>Calculadora v2</h1>
           <input id="display" type="text" readonly value="0" />
           <div class="grid">
             <button class="clear" onclick="limpar()">C</button>
