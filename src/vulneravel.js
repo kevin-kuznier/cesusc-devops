@@ -1,4 +1,7 @@
+const express = require('express');
 const mysql = require('mysql');
+
+const router = express.Router();
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -9,25 +12,28 @@ const db = mysql.createConnection({
 
 // ============================================================
 // EXEMPLO PROPOSITAL DE FALHA - para o SAST (CodeQL) detectar.
-// Use isto na demonstracao "simular correcao de falha".
+// A entrada do usuario (req.query.id) chega direto na query SQL,
+// criando um fluxo de dados que o CodeQL rastreia e marca como
+// SQL Injection. Use na demonstracao "simular correcao de falha".
 // ============================================================
 
-function buscarUsuario(req, res) {
+router.get('/usuario', (req, res) => {
   const id = req.query.id;
 
   // VERSAO VULNERAVEL (SQL Injection) - concatena entrada do usuario:
   const sql = 'SELECT * FROM usuarios WHERE id = ' + id;
 
-  // VERSAO CORRIGIDA (descomente para "corrigir a falha" na apresentacao):
+  // VERSAO CORRIGIDA (descomente para "corrigir a falha"):
   // const sql = 'SELECT * FROM usuarios WHERE id = ?';
-  // db.query(sql, [id], (err, results) => { ... });
+  // db.query(sql, [id], (err, results) => {
+  //   if (err) return res.status(500).send(err.message);
+  //   res.json(results);
+  // });
 
   db.query(sql, (err, results) => {
-    if (err) {
-      return res.status(500).send(err.message);
-    }
+    if (err) return res.status(500).send(err.message);
     res.json(results);
   });
-}
+});
 
-module.exports = { buscarUsuario };
+module.exports = router;

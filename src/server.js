@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Calculadora</title>
+        <title>Calculadora </title>
         <style>
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body {
@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
             border-radius: 10px;
             font-size: 1.25rem;
             cursor: pointer;
-            background: #334155;
+            background: #334055;
             color: #fff;
             transition: filter 0.15s;
           }
