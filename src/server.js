@@ -66,6 +66,7 @@ app.get('/', (req, res) => {
         </style>
       </head>
       <body>
+<<<<<<< HEAD
         <div class="calc">
           <h1>Calculadora DevOps</h1>
           <p class="sub">Deploy continuo via CI/CD - v1.1.0</p>
@@ -107,6 +108,12 @@ app.get('/', (req, res) => {
             } catch { d.value = 'Erro'; }
           }
         </script>
+=======
+        <h1 id="titulo">Aplicacao N3 - DevOps</h1>
+        <p id="status">Aplicacao rodando com CI/CD!</p>
+        <p id="versao">Versao: 1.1.0</p>
+        <p id="deploy">Deploy automatico via GitHub Actions na branch main</p>
+>>>>>>> 9d52b56a6765f014f67bafad7fa8956f7260e6e4
       </body>
     </html>
   `);
