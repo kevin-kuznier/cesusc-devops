@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
       <body>
         <h1 id="titulo">Aplicacao N3 - DevOps</h1>
         <p id="status">Aplicacao rodando com CI/CD!</p>
-        <p>Versao: 1.0.0</p>
+        <p id="versao">Versao: 1.1.0</p>
+        <p id="deploy">Deploy automatico via GitHub Actions na branch main</p>
       </body>
     </html>
   `);
