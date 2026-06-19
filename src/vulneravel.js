@@ -25,7 +25,10 @@ router.get('/usuario', (req, res) => {
   // VERSAO CORRIGIDA (descomente para "corrigir a falha"):
    const sql = 'SELECT * FROM usuarios WHERE id = ?';
    db.query(sql, [id], (err, results) => {
-     if (err) return res.status(500).send(err.message);
+     if (err) {
+       console.error('Erro ao buscar usuario:', err);
+       return res.status(500).json({ error: 'Erro interno do servidor.' });
+     }
      res.json(results);
    });
 });
