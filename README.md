@@ -75,7 +75,7 @@ npm run test:ui    # teste Selenium (precisa do Chrome instalado)
 
 ---
 
-## ROTEIRO DA APRESENTAÇÃO (o que mostrar)
+## ROTEIRO 
 
 1. Acessar a app no navegador: `http://<IP_DO_EC2>`
 2. Fazer um commit numa branch de feature
@@ -88,7 +88,7 @@ npm run test:ui    # teste Selenium (precisa do Chrome instalado)
 
 ---
 
-## Simular correção de falha (bônus)
+## Simular correção de falha 
 O arquivo `src/vulneravel.js` contém um exemplo de SQL injection de propósito.
 Para "corrigir e mostrar o scan passando", troque a query concatenada por query parametrizada
 (veja o comentário no próprio arquivo), faça commit e mostre o CodeQL apontando antes / limpo depois.
