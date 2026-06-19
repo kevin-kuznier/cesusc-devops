@@ -21,19 +21,13 @@ router.get('/usuario', (req, res) => {
   const id = req.query.id;
 
   // VERSAO VULNERAVEL (SQL Injection) - concatena entrada do usuario:
-  const sql = 'SELECT * FROM usuarios WHERE id = ' + id;
 
   // VERSAO CORRIGIDA (descomente para "corrigir a falha"):
-  // const sql = 'SELECT * FROM usuarios WHERE id = ?';
-  // db.query(sql, [id], (err, results) => {
-  //   if (err) return res.status(500).send(err.message);
-  //   res.json(results);
-  // });
-
-  db.query(sql, (err, results) => {
-    if (err) return res.status(500).send(err.message);
-    res.json(results);
-  });
+   const sql = 'SELECT * FROM usuarios WHERE id = ?';
+   db.query(sql, [id], (err, results) => {
+     if (err) return res.status(500).send(err.message);
+     res.json(results);
+   });
 });
 
 module.exports = router;
