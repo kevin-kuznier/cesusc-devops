@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
       </head>
       <body>
         <div class="calc">
-          <h1>Calculadora</h1>
+          <h1>Calculadora v3</h1>
           <input id="display" type="text" readonly value="0" />
           <div class="grid">
             <button class="clear" onclick="limpar()">C</button>
